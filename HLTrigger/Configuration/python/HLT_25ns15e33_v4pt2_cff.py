@@ -64374,24 +64374,6 @@ fragment.hltScoutingEgammaPacker = cms.EDProducer( "HLTScoutingEgammaProducer",
     EleGsfTrackIsoMap = cms.InputTag( "hltEgammaEleGsfTrackIso" )
 )
 
-fragment.hltOutputScoutingCalo = cms.OutputModule( "GlobalEvFOutputModule",
-    use_compression = cms.untracked.bool( True ),
-    compression_algorithm = cms.untracked.string( "ZLIB" ),
-    compression_level = cms.untracked.int32( 1 ),
-    lumiSection_interval = cms.untracked.int32( 0 ),
-    SelectEvents = cms.untracked.PSet(  SelectEvents = cms.vstring( 'DST_CaloJet40_CaloBTagScouting_v6',
-  'DST_CaloJet40_CaloScouting_PFScouting_v7',
-  'DST_HT250_CaloBTagScouting_v3',
-  'DST_HT250_CaloScouting_v5',
-  'DST_L1HTT_CaloBTagScouting_v6',
-  'DST_L1HTT_CaloScouting_PFScouting_v7' ) ),
-    outputCommands = cms.untracked.vstring( 'drop *',
-      'keep *_hltFEDSelectorL1_*_*',
-      'keep *_hltScoutingCaloPacker_*_*',
-      'keep edmTriggerResults_*_*_*' ),
-    psetMap = cms.untracked.InputTag( "hltPSetMap" )
-)
-
 fragment.HLTL1UnpackerSequence = cms.Sequence( fragment.hltGtStage2Digis + fragment.hltCaloStage2Digis + fragment.hltGmtStage2Digis + fragment.hltGtStage2ObjectMap )
 fragment.HLTBeamSpot = cms.Sequence( fragment.hltScalersRawToDigi + fragment.hltOnlineBeamSpot )
 fragment.HLTBeginSequence = cms.Sequence( fragment.hltTriggerType + fragment.HLTL1UnpackerSequence + fragment.HLTBeamSpot )
