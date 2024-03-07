@@ -49,8 +49,8 @@ L1TCaloSummaryCICADAv2p1p1 = cms.EDProducer('L1TCaloSummaryCICADAv2p1p1',
                                         # See UCTLayer1.hh for firmware version
                                         firmwareVersion = cms.int32(1),
                                         #CICADAModelVersion = cms.string("CICADAModel_v1")
-                                        # CICADAModelVersion = cms.string("CICADA/CICADAModel_v2p1"),
-                                        CICADAModelVersion = cms.string("CICADA/CICADAModel_v2p1p1"),
+                                        # CICADAModelVersion = cms.string("CICADAModel_v2p1"),
+                                        CICADAModelVersion = cms.string("CICADAModel_v2p1p1"),
                                         useTestPatterns = cms.bool(False),
                                         testPatterns = cms.VPSet(
                                             # Test Pattern 1: Vivado_HLS result: 4.375
